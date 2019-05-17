@@ -51,7 +51,7 @@ public interface List<E> {
     public int currentPos();
     
     //Move to a supplied position in the list
-    public void toPos(int index);
+    public void toPos(int index) throws Exception;
     
     //Return the value of the current element
     public E getValue();

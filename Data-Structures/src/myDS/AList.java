@@ -166,15 +166,35 @@ public class AList<E> implements List<E> {
     
     //Return the length of the list
     @Override
-    public int length();
+    public int length() {
+        
+        return elements;
+        
+    } // end of public int length() {
     
     //Return the index of the current position in the list
     @Override
-    public int currentPos();
+    public int currentPos() {
+        
+        return curPos;
+        
+    } // end of public int currentPos() {
     
     //Move to a supplied position in the list
     @Override
-    public void toPos(int index);
+    public void toPos(int index) throws Exception {
+        
+        if((index >= 0) && (index <= maxSize-1)) {
+            
+            curPos = index;
+            
+        } else {
+            
+            throw new Exception("That index does not exist");
+            
+        } // end of if((index >= 0) && (index <= maxSize-1)) { ... else
+        
+    } // end of public void toPos(int index) throws Exception {
     
     //Return the value of the current element
     @Override
