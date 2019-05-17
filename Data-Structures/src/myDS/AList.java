@@ -100,27 +100,69 @@ public class AList<E> implements List<E> {
         //Assign element to index elements-1, increment elements
         aList[elements-1] = element;
         elements++;
-    }
+        
+    } // end of public void append(E element) throws Exception {
     
     //Remove and return the current element
     @Override
-    public E remove();
+    public E remove() {
+        
+        //Make sure there is a current element
+        if(curPos == elements) {
+            
+            return null;
+            
+        } // end of if(curPos == elements) {
+        
+        //Store pointer to current element
+        E temp = aList[curPos];
+        
+        //Shift all following list elements back
+        for(int i = curPos; i < elements-1; i++) {
+            
+            aList[i] = aList[i+1];
+            
+        } // end of for(int i = curPos; i < elements-1; i++) {
+        
+        return temp;
+        
+    } // end of public E remove() {
     
     //Move to the head of the list
     @Override
-    public void toHead();
+    public void toHead() {
+        
+        //Set the curPos to 0
+        curPos = 0;
+        
+    } // end of public void toHead() {
     
     //Move to the tail of the list
     @Override
-    public void toTail();
+    public void toTail() {
+        
+        //Set the curPos to last element
+        curPos = elements - 1;
+        
+    } // end of public void toTail() {
     
     //Move to the previous element in the list
     @Override
-    public void prev();
+    public void prev() {
+        
+        //Decrement curPos
+        curPos--;
+        
+    } // end of public void prev() {
     
     //Move to the next element in the list
     @Override
-    public void next();
+    public void next() {
+        
+        //Increment curPos
+        curPos++;
+        
+    } // end of public void next() {
     
     //Return the length of the list
     @Override
