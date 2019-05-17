@@ -60,7 +60,13 @@ public class AList<E> implements List<E> {
     
     //Remove all elements from the list
     @Override
-    public void clear();
+    public void clear() {
+        
+        //Reset variables
+        elements = 0;
+        curPos = 0;
+        
+    } // end of public void clear() {
     
     //Insert a new element into the list at the current position
     @Override
