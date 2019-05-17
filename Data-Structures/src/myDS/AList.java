@@ -57,6 +57,7 @@ public class AList<E> implements List<E> {
     
 ///////////////////////////////////////////////////////////////////////////////
     
+    //Methods//
     
     //Remove all elements from the list
     @Override
@@ -198,6 +199,19 @@ public class AList<E> implements List<E> {
     
     //Return the value of the current element
     @Override
-    public E getValue();
+    public E getValue() {
+        
+        //Make sure there is an element to return
+        if(elements > 0) {
+            
+            return aList[curPos];
+            
+        } else {
+            
+            return null;
+            
+        } // end of if(elements > 0) { ... else
+        
+    } // end of public E getValue() {
     
-}
+} // end of 
