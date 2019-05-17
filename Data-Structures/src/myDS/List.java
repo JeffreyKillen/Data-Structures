@@ -24,10 +24,10 @@ public interface List<E> {
     public void clear();
     
     //Insert a new element into the list at the current position
-    public void insert(E element);
+    public void insert(E element) throws Exception;
     
     //Append a new element to the end of the list
-    public void append(E element);
+    public void append(E element) throws Exception;
     
     //Remove and return the current element
     public E remove();

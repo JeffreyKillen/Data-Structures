@@ -70,7 +70,19 @@ public class AList<E> implements List<E> {
     
     //Insert a new element into the list at the current position
     @Override
-    public void insert(E element) {
+    public void insert(E element) throws Exception {
+        
+        //Check the list is not full
+        if(maxSize == elements) {throw new Exception("The list is full");}
+        
+        //Shift all following elements
+        //Start at the end of the list and work backward
+        for(int i = elements; i > curPos; i--) {
+            
+            //Set the current index i to the previous index i-1
+            aList[i] = aList[i-1];
+            
+        } // end of for(int i = elements; i > curPos; i--) {
         
         //Assign element to index curPos, increment elements
         aList[curPos] = element;
@@ -80,7 +92,15 @@ public class AList<E> implements List<E> {
     
     //Append a new element to the end of the list
     @Override
-    public void append(E element);
+    public void append(E element) throws Exception {
+        
+        //Check the list is not full
+        if(maxSize == elements) {throw new Exception("The list is full");}
+        
+        //Assign element to index elements-1, increment elements
+        aList[elements-1] = element;
+        elements++;
+    }
     
     //Remove and return the current element
     @Override
