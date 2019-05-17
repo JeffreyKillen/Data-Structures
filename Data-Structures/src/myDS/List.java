@@ -39,10 +39,10 @@ public interface List<E> {
     public void toTail();
     
     //Move to the previous element in the list
-    public void prev();
+    public void prev() throws Exception;
     
     //Move to the next element in the list
-    public void next();
+    public void next() throws Exception;
     
     //Return the length of the list
     public int length();

@@ -154,19 +154,35 @@ public class AList<E> implements List<E> {
     
     //Move to the previous element in the list
     @Override
-    public void prev() {
+    public void prev() throws Exception {
         
-        //Decrement curPos
-        curPos--;
+        if(curPos > 0) {
+            
+            //Decrement curPos
+            curPos--;
+            
+        } else {
+            
+            throw new Exception("Cannot move beyond beginning of list");
+            
+        } // end of if(curPos > 0) { ... else 
         
     } // end of public void prev() {
     
     //Move to the next element in the list
     @Override
-    public void next() {
+    public void next() throws Exception {
         
-        //Increment curPos
-        curPos++;
+        if(curPos < elements -1) {
+            
+            //Increment curPos
+            curPos++;
+            
+        } else {
+            
+            throw new Exception("Cannot move beyond end of list");
+            
+        } // end of if(curPos < elements -1) { ... else
         
     } // end of public void next() {
     
