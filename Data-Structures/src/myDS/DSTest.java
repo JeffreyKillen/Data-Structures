@@ -77,7 +77,7 @@ public class DSTest {
         //test next
         try {
             
-            //defaultList.next();
+            defaultList.next();
             definedList.next();
             
         } catch (Exception e) {
@@ -169,21 +169,42 @@ public class DSTest {
         
         //test currentPos
         
+        System.out.println("Default lists current Pos: " + defaultList.currentPos());
+        
     ////////////////////////////////////////////////////////////////////////////
         
         //test remove
+        System.out.println("Default list remove @ pos 3: " + defaultList.remove());
+        System.out.println("Default list, value @ pos 3: " + defaultList.getValue());
         
     ////////////////////////////////////////////////////////////////////////////       
         
         //test insert, getValue()
+        try {
+            
+            defaultList.insert(42);
+            System.out.println("Default list, value @ pos 3: " + defaultList.getValue());
+            definedList.toPos(3);
+            definedList.insert(37);
+            System.out.println("Defined list, value @ pos 3: " + definedList.getValue());
+            
+        } catch (Exception e) {
+            
+            System.out.println(e.getMessage());
+            
+        } // end of try/catch
         
     ////////////////////////////////////////////////////////////////////////////
         
         //test length
+        System.out.println("Default length: " + defaultList.length());
         
     ////////////////////////////////////////////////////////////////////////////
         
         //test clear
+        defaultList.clear();
+        System.out.println("Default, post clear, remove: " + defaultList.remove());
+        System.out.println("Default, post clear, getValue: " + defaultList.getValue());
         
     } // end of public static void testAList() {
     

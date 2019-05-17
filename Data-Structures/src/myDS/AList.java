@@ -74,7 +74,7 @@ public class AList<E> implements List<E> {
     public void insert(E element) throws Exception {
         
         //Check the list is not full
-        if(maxSize == elements) {throw new Exception("The list is full");}
+        if(maxSize <= elements) {throw new Exception("The list is full");}
         
         //Shift all following elements
         //Start at the end of the list and work backward
@@ -95,17 +95,12 @@ public class AList<E> implements List<E> {
     @Override
     public void append(E element) throws Exception {
         
-        System.out.println("Appending");
-        
         //Check the list is not full
         if(maxSize <= elements) {throw new Exception("The list is full");}
-        
-        System.out.println("List is not full");
-        
-        //Assign element to index elements-1, increment elements
+                
+        //Increment elements, assign element to index elements
         aList[elements++] = element;
         
-        System.out.println("Element added, Element count: " + elements);
         
     } // end of public void append(E element) throws Exception {
     
@@ -114,11 +109,11 @@ public class AList<E> implements List<E> {
     public E remove() {
         
         //Make sure there is a current element
-        if(curPos == elements) {
+        if((curPos >= elements) || (curPos < 0)) {
             
             return null;
             
-        } // end of if(curPos == elements) {
+        } // end of if(curPos >= elements) {
         
         //Store pointer to current element
         E temp = aList[curPos];
@@ -129,6 +124,9 @@ public class AList<E> implements List<E> {
             aList[i] = aList[i+1];
             
         } // end of for(int i = curPos; i < elements-1; i++) {
+        
+        //Decrement elements
+        elements--;
         
         return temp;
         
@@ -173,14 +171,14 @@ public class AList<E> implements List<E> {
     @Override
     public void next() throws Exception {
         
-        if(curPos < elements -1) {
+        if((curPos >= elements - 1) && (elements == maxSize)) {
             
-            //Increment curPos
-            curPos++;
+            throw new Exception("Cannot move beyond end of list");
             
         } else {
             
-            throw new Exception("Cannot move beyond end of list");
+            //Increment curPos
+            curPos++;
             
         } // end of if(curPos < elements -1) { ... else
         
@@ -223,7 +221,7 @@ public class AList<E> implements List<E> {
     public E getValue() {
         
         //Make sure there is an element to return
-        if(elements > 0) {
+        if((elements > 0) && (curPos < elements)) {
             
             return aList[curPos];
             
