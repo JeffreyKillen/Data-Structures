@@ -95,12 +95,17 @@ public class AList<E> implements List<E> {
     @Override
     public void append(E element) throws Exception {
         
+        System.out.println("Appending");
+        
         //Check the list is not full
-        if(maxSize == elements) {throw new Exception("The list is full");}
+        if(maxSize <= elements) {throw new Exception("The list is full");}
+        
+        System.out.println("List is not full");
         
         //Assign element to index elements-1, increment elements
-        aList[elements-1] = element;
-        elements++;
+        aList[elements++] = element;
+        
+        System.out.println("Element added, Element count: " + elements);
         
     } // end of public void append(E element) throws Exception {
     
