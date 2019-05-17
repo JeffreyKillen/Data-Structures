@@ -70,7 +70,13 @@ public class AList<E> implements List<E> {
     
     //Insert a new element into the list at the current position
     @Override
-    public void insert(E element);
+    public void insert(E element) {
+        
+        //Assign element to index curPos, increment elements
+        aList[curPos] = element;
+        elements++;
+        
+    } // end of public void insert(E element) {
     
     //Append a new element to the end of the list
     @Override
