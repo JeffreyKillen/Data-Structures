@@ -24,10 +24,10 @@ public interface List<E> {
     public void clear();
     
     //Insert a new element into the list at the current position
-    public void insert(E element);
+    public void insert(E element) throws Exception;
     
     //Append a new element to the end of the list
-    public void append(E element);
+    public void append(E element) throws Exception;
     
     //Remove and return the current element
     public E remove();
@@ -39,10 +39,10 @@ public interface List<E> {
     public void toTail();
     
     //Move to the previous element in the list
-    public void prev();
+    public void prev() throws Exception;
     
     //Move to the next element in the list
-    public void next();
+    public void next() throws Exception;
     
     //Return the length of the list
     public int length();
@@ -51,7 +51,7 @@ public interface List<E> {
     public int currentPos();
     
     //Move to a supplied position in the list
-    public void toPos(int index);
+    public void toPos(int index) throws Exception;
     
     //Return the value of the current element
     public E getValue();
