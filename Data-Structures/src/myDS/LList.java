@@ -84,6 +84,9 @@ public class LList<E> implements List<E> {
     //Remove and return the current element
     @Override
     public E remove() {
+
+        if(this.current.getValue() == null)
+            return null;
         
         E value = this.current.getValue();
         
@@ -91,7 +94,8 @@ public class LList<E> implements List<E> {
         
         prev();
         
-        this.current.setNext(temp.getNext());
+        if(temp != tail)
+            this.current.setNext(temp.getNext());
         
         return value;
         

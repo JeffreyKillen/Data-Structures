@@ -21,8 +21,9 @@ public class DSTest {
     //AList test variables//
     private static int[] aListTestValuesDefault = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
     private static int[] aListTestValuesDefined = {8,6,7,5,3,0,9};
-    private static AList<Integer> defaultList = new AList<Integer>();
-    private static AList<Integer> definedList = new AList<Integer>(8);
+    private static LList<Integer> defaultList = new LList<Integer>();
+    //private static AList<Integer> defaultList = new AList<Integer>();
+    //private static AList<Integer> definedList = new AList<Integer>(8);
     
     public static void testAList() {
         
@@ -47,7 +48,7 @@ public class DSTest {
             
         } // end of for(int i: aListTestValuesDefault) {
         
-        for(int i: aListTestValuesDefined) {
+        /*for(int i: aListTestValuesDefined) {
             
             try {
                 
@@ -61,7 +62,7 @@ public class DSTest {
                 
             } // end of try/catch         
             
-        } // end of for(int i: aListTestValuesDefined) {
+        } // end of for(int i: aListTestValuesDefined) {*/
         
     ////////////////////////////////////////////////////////////////////////////
         
@@ -69,8 +70,8 @@ public class DSTest {
         defaultList.toTail();
         System.out.println("Default tail value: " + defaultList.getValue());
         
-        definedList.toTail();
-        System.out.println("Default tail value: " + definedList.getValue());
+        //definedList.toTail();
+        //System.out.println("Default tail value: " + definedList.getValue());
         
     ////////////////////////////////////////////////////////////////////////////
         
@@ -78,7 +79,7 @@ public class DSTest {
         try {
             
             defaultList.next();
-            definedList.next();
+            //definedList.next();
             
         } catch (Exception e) {
             
@@ -94,8 +95,8 @@ public class DSTest {
             defaultList.prev();
             System.out.println("Default list, prev value: " + defaultList.getValue());
             
-            definedList.prev();
-            System.out.println("Defined list, prev value: " + definedList.getValue());
+            //definedList.prev();
+            //System.out.println("Defined list, prev value: " + definedList.getValue());
             
         } catch (Exception e) {
             
@@ -109,8 +110,8 @@ public class DSTest {
         defaultList.toHead();
         System.out.println("Default head value: " + defaultList.getValue());
         
-        definedList.toHead();
-        System.out.println("Default head value: " + definedList.getValue());
+        //definedList.toHead();
+        //System.out.println("Default head value: " + definedList.getValue());
         
     ////////////////////////////////////////////////////////////////////////////
         
@@ -120,8 +121,8 @@ public class DSTest {
             defaultList.prev();
             System.out.println("Default list, prev value: " + defaultList.getValue());
             
-            definedList.prev();
-            System.out.println("Defined list, prev value: " + definedList.getValue());
+            //definedList.prev();
+            //System.out.println("Defined list, prev value: " + definedList.getValue());
             
         } catch (Exception e) {
             
@@ -137,8 +138,8 @@ public class DSTest {
             defaultList.next();
             System.out.println("Default list, next value: " + defaultList.getValue());
             
-            definedList.next();
-            System.out.println("Defined list, next value: " + definedList.getValue());
+            //definedList.next();
+            //System.out.println("Defined list, next value: " + definedList.getValue());
             
         } catch (Exception e) {
             
@@ -156,8 +157,8 @@ public class DSTest {
             System.out.println("Default toPos: " + defaultList.getValue());
             
             //invalid pos
-            definedList.toPos(42);
-            System.out.println("Defined toPos: " + definedList.getValue());
+            //definedList.toPos(42);
+            //System.out.println("Defined toPos: " + definedList.getValue());
             
         } catch (Exception e) {
             
@@ -184,9 +185,9 @@ public class DSTest {
             
             defaultList.insert(42);
             System.out.println("Default list, value @ pos 3: " + defaultList.getValue());
-            definedList.toPos(3);
-            definedList.insert(37);
-            System.out.println("Defined list, value @ pos 3: " + definedList.getValue());
+            //definedList.toPos(3);
+            //definedList.insert(37);
+            //System.out.println("Defined list, value @ pos 3: " + definedList.getValue());
             
         } catch (Exception e) {
             
