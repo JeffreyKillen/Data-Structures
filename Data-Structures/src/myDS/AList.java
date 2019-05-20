@@ -71,10 +71,10 @@ public class AList<E> implements List<E> {
     
     //Insert a new element into the list at the current position
     @Override
-    public void insert(E element) throws Exception {
+    public void insert(E element) {
         
         //Check the list is not full
-        if(maxSize <= elements) {throw new Exception("The list is full");}
+        if(maxSize <= elements) {System.out.println("The list is full");}
         
         //Shift all following elements
         //Start at the end of the list and work backward
