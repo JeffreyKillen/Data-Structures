@@ -27,6 +27,30 @@ public class LList<E> implements List<E> {
     
     //Constructors
     
+    //Default//
+    public LList() {
+        
+        //Create an empty list
+        current = head = tail = new Link();
+        
+    } // end of public LList() {
+    
+    //Single Empty Link Arg//
+    public LList(Link<E> link) {
+        
+        //This allows LList to serve as a free list
+        
+        current = head = tail = link;
+        
+    } // end of public LList(Link<E> link) {
+    
+    //Value Arg//
+    public LList(E value) {
+        
+        current = head = tail = new Link(value);
+        
+    } // end of public LList(E value) {
+    
     ///////////////////////////////////////////////////////////////////////////
     
     //Methods
