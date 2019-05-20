@@ -19,7 +19,7 @@ public class Link<E> {
     
     //Variables
     private E value;
-    private Link next;
+    private Link<E> next;
     
     ///////////////////////////////////////////////////////////////////////////
     
@@ -32,7 +32,7 @@ public class Link<E> {
         
     } // end of public Link() {
     
-    public Link(Link next) {
+    public Link(Link<E> next) {
         
         this.next = next;
         
@@ -44,7 +44,7 @@ public class Link<E> {
         
     } // end of public Link(E value) {
     
-    public Link(E value, Link next) {
+    public Link(E value, Link<E> next) {
         
         this.value = value;
         this.next = next;
@@ -59,13 +59,19 @@ public class Link<E> {
         
     } // end of public E getValue() {
     
+    public Link<E> getNext() {
+        
+        return this.next;
+        
+    } // end of public Link getNext() {
+    
     public void setValue(E value) {
         
         this.value = value;
         
     } // end of public void setValue(E value) {
     
-    public void setNext(Link next) {
+    public void setNext(Link<E> next) {
         
         this.next = next;
         
