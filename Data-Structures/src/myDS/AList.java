@@ -93,10 +93,10 @@ public class AList<E> implements List<E> {
     
     //Append a new element to the end of the list
     @Override
-    public void append(E element) throws Exception {
+    public void append(E element) {
         
         //Check the list is not full
-        if(maxSize <= elements) {throw new Exception("The list is full");}
+        if(maxSize <= elements) {System.out.println("The list is full");}
                 
         //Increment elements, assign element to index elements
         aList[elements++] = element;

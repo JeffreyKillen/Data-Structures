@@ -32,6 +32,8 @@ public class DSTest {
     ////////////////////////////////////////////////////////////////////////////
         
         //populate the list append
+        defaultList.remove();
+        
         for(int i: aListTestValuesDefault) {
             
             try {
@@ -209,13 +211,39 @@ public class DSTest {
         
     } // end of public static void testAList() {
     
+    public static void testLList() {
+        
+        for(int i: aListTestValuesDefault) {
+            
+            defaultList.append(i);
+            
+        }
+        
+        System.out.println("The list is now " + defaultList.length() + " items long");
+        
+        for(int i = 0; i < defaultList.length(); i++) {
+            
+            try {
+                defaultList.toPos(i);
+                System.out.println("The value at position " + i + " is: " + defaultList.getValue());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            
+        }
+        
+    }
 
     public static void main(String[] args) {
         
         //Test AList DS//
-        testAList();
+        //testAList();
         
+        testLList();
         
+        //defaultList.append(42);
+        //defaultList.next();
+        //System.out.println(defaultList.getValue());
         
         
     } // end of public static void main(String[] args) {

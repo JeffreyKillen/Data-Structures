@@ -27,7 +27,7 @@ public interface List<E> {
     public void insert(E element);
     
     //Append a new element to the end of the list
-    public void append(E element) throws Exception;
+    public void append(E element);
     
     //Remove and return the current element
     public E remove();

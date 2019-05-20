@@ -31,7 +31,8 @@ public class LList<E> implements List<E> {
     public LList() {
         
         //Create an empty list
-        current = head = tail = new Link();
+        current = tail = head = new Link();
+        size = 0;
         
     } // end of public LList() {
     
@@ -39,15 +40,18 @@ public class LList<E> implements List<E> {
     public LList(Link<E> link) {
         
         //This allows LList to serve as a free list
-        
-        current = head = tail = link;
+        current = tail = head = link;
+        size = 1;
         
     } // end of public LList(Link<E> link) {
     
     //Value Arg//
     public LList(E value) {
         
-        current = head = tail = new Link(value);
+        this();
+        this.head.setNext(new Link(value));
+        current = tail = this.head.getNext();
+        size = 1;
         
     } // end of public LList(E value) {
     
@@ -59,7 +63,8 @@ public class LList<E> implements List<E> {
     @Override
     public void clear() {
         
-        current = head = tail = null;
+        current = tail = null;
+        head.setNext(null);
         
     } // end of public void clear() {
     
@@ -68,16 +73,18 @@ public class LList<E> implements List<E> {
     public void insert(E element) {
         
         this.current.setNext(new Link(element, this.current.getNext()));
+        size++;
         
     } // end of public void insert(E element) throws Exception {
     
     //Append a new element to the end of the list
     @Override
-    public void append(E element) throws Exception {
+    public void append(E element) {
         
-        Link<E> temp = new Link(element);
-        this.tail.setNext(temp);
-        this.tail = temp;
+        tail.setNext(new Link(element, null));
+        tail = tail.getNext();
+        next();
+        size++;
         
     } // end of public void append(E element) throws Exception {
     
@@ -97,6 +104,8 @@ public class LList<E> implements List<E> {
         if(temp != tail)
             this.current.setNext(temp.getNext());
         
+        size--;
+        
         return value;
         
     } // end of public E remove() { 
@@ -105,7 +114,7 @@ public class LList<E> implements List<E> {
     @Override
     public void toHead() {
         
-        this.current = this.head;
+        this.current = this.head.getNext();
         
     } // end of public void toHead() {
     
@@ -128,7 +137,7 @@ public class LList<E> implements List<E> {
         } // end of if(current == head) {
         
         Link<E> prev = null;
-        Link<E> temp = this.head;
+        Link<E> temp = this.head.getNext();
         
         while(temp != this.current) {
             
@@ -143,9 +152,10 @@ public class LList<E> implements List<E> {
     
     //Move to the next element in the list
     @Override
-    public void next() throws Exception {
+    public void next() {
         
-        this.current = this.current.getNext();
+        if(this.current.getNext() != null)
+            this.current = this.current.getNext();
         
     } // end of public void next() throws Exception {
     
@@ -179,19 +189,16 @@ public class LList<E> implements List<E> {
     @Override
     public void toPos(int index) throws Exception {
         
-        Link<E> temp = this.head;
+        if((index < 0) || (index > this.length()))
+            throw new Exception("Index out of bounds");
+        
+        toHead();
         
         int position = 0;
         
         while(position != index) {
             
-            if (temp.getNext() == null) {
-                
-                throw new Exception("That position does not exist");
-                
-            } // end of if (temp.getNext() == null) {
-            
-            temp = temp.getNext();
+            next();
             position++;
             
         } // end of while(position != index) {
