@@ -51,27 +51,55 @@ public class LList<E> implements List {
     //Remove and return the current element
     public E remove() {
         
-    }
+        E value = this.current.getValue();
+        
+        Link<E> temp = this.current;
+        
+        prev();
+        
+        this.current.setNext(temp.getNext());
+        
+        return value;
+        
+    } // end of public E remove() { 
     
     //Move to the head of the list
     public void toHead() {
         
-    }
+        this.current = this.head;
+        
+    } // end of public void toHead() {
     
     //Move to the tail of the list
     public void toTail() {
         
-    }
+        this.current = this.tail;
+        
+    } // end of public void toTail() {
     
     //Move to the previous element in the list
-    public void prev() throws Exception {
+    public void prev() {
         
-    }
+        Link<E> prev = null;
+        Link<E> temp = this.head;
+        
+        while(temp != this.current) {
+            
+            prev = temp;
+            temp = temp.getNext();
+            
+        } // end of while(temp != current) {
+        
+        this.current = prev;
+        
+    } // end of public void prev() {
     
     //Move to the next element in the list
     public void next() throws Exception {
         
-    }
+        this.current = this.current.getNext();
+        
+    } // end of public void next() throws Exception {
     
     //Return the length of the list
     public int length() {

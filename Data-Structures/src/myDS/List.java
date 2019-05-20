@@ -39,7 +39,7 @@ public interface List<E> {
     public void toTail();
     
     //Move to the previous element in the list
-    public void prev() throws Exception;
+    public void prev() ;
     
     //Move to the next element in the list
     public void next() throws Exception;
